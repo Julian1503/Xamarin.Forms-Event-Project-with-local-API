@@ -1,0 +1,23 @@
+﻿using SmartEvent.Model;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Text;
+using Xamarin.Forms;
+
+namespace SmartEvent.Converter
+{
+    public class UbicationConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var valor = ((UbicationModel)value);
+            return $"{valor.Provincia}, {valor.Ciudad} {valor.CodigoPostal} ";
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return value;
+        }
+    }
+}

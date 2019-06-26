@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SmartEvent.View.CrearUsuario.NombreUsuarioView">
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource MainLayout}">
+
+
+            <ContentView Margin="20,30,0,0">
+                <Label  Text="Escriba su nombre de usuario." FontAttributes="Bold" FontSize="22" TextColor="#080616" />
+            </ContentView>
+
+
+            <ContentView Margin="20,15,0,0">
+                <Entry x:Name="txtNombre"
+                            VerticalOptions="Center"
+                           HorizontalOptions="FillAndExpand"
+                           Placeholder="Nombre de usuario"
+                           PlaceholderColor="#999999"
+                           Margin="0,0,0,10"
+                           FontAttributes="Bold" MaxLength="75" Visual="Material" TextColor="#080616"/>
+            </ContentView>
+
+
+            <ContentView Style="{StaticResource NextButtonLayout}">
+                <Button Style="{StaticResource NextButton}" Command="{Binding NombreCommand}" Clicked="Button_Clicked"/>
+            </ContentView>
+
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

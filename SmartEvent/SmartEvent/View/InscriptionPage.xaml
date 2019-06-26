@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SmartEvent.View.InscriptionPage"
+              xmlns:local="clr-namespace:SmartEvent.Converter">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:DateConverter x:Key="DateConverter"/>
+            <local:HourConverter x:Key="HourConverter"/>
+            <local:TicketConverter x:Key="TicketConverter"/>
+            <local:PrecioConverter x:Key="PrecioConverter"/>
+            <local:UbicationConverter x:Key="UbicationConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+        <ScrollView>
+            <StackLayout Margin="0">
+
+                <Image Source="{Binding Data.Path,Mode=OneTime}" Aspect="AspectFill" HeightRequest="300"/>
+                <Label Text="{Binding Data.Nombre,Mode=OneTime}" TextColor="Black"  FontAttributes="Bold" FontSize="35" HorizontalOptions="Start" Margin="20,10,0,0" VerticalOptions="Start" HorizontalTextAlignment="Start" FontFamily="ArchivoNarrow-Bold.ttf#Titles"/>
+                <Label Text="{Binding Data.Organizador,Mode=OneTime}" FontSize="22" Margin="20,0,0,20"/>
+                <Grid Margin="15,0,15,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Image Source="ticket.png" Grid.Row="4" Grid.RowSpan="2" WidthRequest="5" Scale="0.8" HeightRequest="5"/>
+                    <Image Source="ubicacion.png" Grid.Row="2" Grid.RowSpan="2" Scale="0.6" WidthRequest="5" HeightRequest="5"/>
+                    <Image Source="calendario.png"  Grid.RowSpan="2" Scale="0.6" WidthRequest="5" HeightRequest="5"/>
+                    <Label Grid.Column="1" TextColor="Black" Text="{Binding Data.Programacion,Converter={StaticResource DateConverter} ,Mode=OneTime}" FontSize="20"/>
+                    <Label Grid.Column="1" Grid.Row="1" TextColor="Gray" Text="{Binding Data.Programacion ,Converter={StaticResource HourConverter},Mode=OneTime}"   FontSize="18"/>
+                    <Label Grid.Column="1" Grid.Row="2" TextColor="Black" Text="{Binding Data.Ubicacion.Direccion,Mode=OneTime}" FontSize="20"/>
+                    <Label Grid.Column="1" Grid.Row="3" TextColor="Gray" Text="{Binding Data.Ubicacion,Converter={StaticResource UbicationConverter},Mode=OneTime}" FontSize="18" MaxLines="3"/>
+                    <Label  Grid.Column="1" Grid.Row="4"  TextColor="Black" Text="{Binding Data.Entrada.Precio,Converter={StaticResource PrecioConverter} ,Mode=OneTime}" FontSize="20"/>
+                    <Label Grid.Column="1" Grid.Row="5" TextColor="Gray" IsVisible="{Binding Data.MostrarLasEntradasRestantes}" Text="{Binding Data.Entrada.CantidadDisponible,Converter={StaticResource TicketConverter},Mode=OneTime}" FontSize="18"/>
+                </Grid>
+                <BoxView HeightRequest="1" Color="Gray" Margin="15,25,15,0"/>
+                <StackLayout>
+                    
+                    <Label Text="Descripcion" TextColor="Black" Margin="15,25,0,20" FontSize="28"/>
+                    <Label Margin="15,0,15,0" FontSize="18" Text="{Binding Data.Descripcion,Mode=OneTime}"/>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+        <Button AbsoluteLayout.LayoutFlags="WidthProportional,PositionProportional"  Command="{Binding InscripcionCommand}" Text="Inscribite" AbsoluteLayout.LayoutBounds="0,1,1,50" FontSize="20" FontFamily="Graphik" BackgroundColor="#F14301" BorderColor="#F14301" FontAttributes="Bold" TextColor="White" />
+    </StackLayout>
+</ContentPage>

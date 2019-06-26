@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SmartEvent.View.LoginPage">
+    <!-- Principal -->
+    <StackLayout Spacing="0" Padding="0">
+
+        <BoxView Color="RoyalBlue" HeightRequest="10"/>
+
+        <StackLayout Margin="20">
+
+            <!-- Encabezado -->
+            <ContentView Margin="0,20,0,20">
+                <Label Text="Meetup"
+                   TextColor="RoyalBlue"
+                   FontSize="50"
+                   HorizontalTextAlignment="Center"
+                   FontAttributes="Bold"
+                   Margin="0,0,0,10"/>
+
+            </ContentView>
+
+            <!-- Formulario -->
+            <StackLayout>
+
+                <!-- Inputs -->
+                <StackLayout Margin="0,0,0,20">
+
+                    <!-- Email -->
+                    <Label Text="Correo electrónico" 
+                       TextColor="Black"
+                       FontSize="Micro"/>
+                    <Entry x:Name="txtNombre"
+                           Text="{Binding UsuarioNombre}"
+                        VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"
+                       Placeholder="Ingrese su dirección de correo electrónico"
+                       PlaceholderColor="LightGray"
+                       Margin="0,0,0,10"/>
+
+                    <!-- Password -->
+                    <Label   Text="Contraseña" 
+                       TextColor="Black"
+                       FontSize="Micro"/>
+                    <Entry x:Name="txtContrasenia" Text="{Binding UsuarioContraseña}" VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"
+                       IsPassword="True"
+                       Placeholder="Ingrese una contraseña"
+                       PlaceholderColor="LightGray"/>
+                </StackLayout>
+
+
+                <!-- Botones -->
+                <Button Text="Iniciar sesión" 
+                    TextColor="White" Command="{Binding LogInCommand}"
+                    BackgroundColor="RoyalBlue" 
+                    FontSize="Medium" 
+                    BorderRadius="3" />
+
+                <Button Text="Registrarse" Margin="0,20,0,0"
+                    TextColor="White" 
+                    BackgroundColor="RoyalBlue" 
+                    FontSize="Medium" 
+                    BorderRadius="3" Command="{Binding RegistrarseCommand}"/>
+
+            </StackLayout>
+
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentPage>

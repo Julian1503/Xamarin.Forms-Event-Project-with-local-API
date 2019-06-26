@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SmartEvent.View.MasterMainMaster" Title="Master">
+    <ContentPage.Content>
+        <Grid RowSpacing="1" Margin="1,0,1,0">
+               <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+               </Grid.RowDefinitions>             
+               <Button Grid.Row="0" IsVisible="{Binding LogOut}" Command="{Binding LogOutCommand}" Style="{StaticResource HeaderButton}" BackgroundColor="DarkOrange" Text="Log Out"/>
+               <Button Grid.Row="0" Command="{Binding LogInCommand}" IsVisible="{Binding LogIn}" Style="{StaticResource HeaderButton}" Text="Log In"/>
+               <Button Grid.Row="1" Command="{Binding CreateEventCommand}" Style="{StaticResource HeaderButton}" Text="Crear Evento"/>
+               <Button Grid.Row="2" Command="{Binding AcreditacionCommand}" Style="{StaticResource HeaderButton}" Text="Acreditarse" ></Button>
+       </Grid>
+    </ContentPage.Content>
+</ContentPage>

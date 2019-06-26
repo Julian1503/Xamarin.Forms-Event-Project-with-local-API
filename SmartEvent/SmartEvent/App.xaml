@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SmartEvent.App">
+        <Application.Resources>
+            <ResourceDictionary>
+                <!--TextColor="White" FontAttributes="Bold" CornerRadius="5" BackgroundColor="#F14301" BorderColor="#D2D2D2"-->
+            <Style TargetType="Button" x:Key="OrangeButtonStyle">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="BackgroundColor" Value="#4169e1" />
+                <Setter Property="FontFamily" Value="Graphik"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="BorderColor" Value="#D2D2D2"/>
+                <Setter Property="Command" Value="{Binding InscriptionCommand}"/>
+            </Style>
+            <!--CornerRadius="20"  TextColor="White" BackgroundColor="#FC723E" -->
+            <Style TargetType="Button" x:Key="HeaderButton">
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="BackgroundColor" Value="#4169e1"></Setter>
+            </Style>
+                <Style x:Key="ErrorStyle" TargetType="Label">
+                    <Setter Property="TextColor" Value="Red"></Setter>
+                    <Setter Property="IsVisible" Value="False"></Setter>
+                </Style>
+            <Style x:Key="NextButton" TargetType="Button">
+                <Setter Property="Text" Value="→" ></Setter>
+                <Setter Property="CornerRadius" Value="50"></Setter>
+                <Setter Property="HorizontalOptions" Value="End"></Setter>
+                <Setter Property="HeightRequest" Value="50"></Setter>
+                <Setter Property="WidthRequest" Value="50"></Setter>
+                <Setter Property="FontSize" Value="15"></Setter>
+            </Style>
+            <Style x:Key="NextButtonLayout" TargetType="StackLayout">
+                <Setter Property="VerticalOptions" Value="EndAndExpand"></Setter>
+                <Setter Property="Margin" Value="0,0,0,20"></Setter>
+            </Style>
+
+            <Style x:Key="MainLayout" TargetType="StackLayout">
+                <Setter Property="Margin" Value="0,0,15,0"></Setter>
+            </Style>
+
+            <Style x:Key="EntryTemplate" TargetType="Entry">
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+                <Setter Property="PlaceholderColor" Value="#999999"></Setter>
+                <Setter Property="Margin" Value="0,0,0,10"></Setter>
+                <Setter Property="MaxLength" Value="75" ></Setter>
+                <Setter Property="TextColor" Value="#080616"></Setter>
+            </Style>
+
+        </ResourceDictionary>
+        </Application.Resources>
+</Application>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SmartEvent.View.CrearUsuario.UbicacionUsuarioPage">
+    <StackLayout Style="{StaticResource MainLayout}">
+
+        <StackLayout Margin="20,30,0,0">
+
+            <Label Text="Dónde es la sede principal del evento." FontAttributes="Bold" FontSize="22" TextColor="#080616" />
+
+            <StackLayout Margin="0,30,0,0">
+
+                <Label Text="Direccion" TextColor="#080616"></Label>
+                <Entry x:Name="txtDireccion" Text="{Binding Direccion}" Style="{StaticResource EntryTemplate}" Placeholder="Introducir dirección"></Entry>
+                <Label Style="{StaticResource ErrorStyle}" IsVisible="{Binding DireccionError}" Text="Ingrese su direccion."/>
+
+                <Label Text="Ciudad" TextColor="#080616"></Label>
+                <Entry x:Name="txtCiudad" Text="{Binding DireccionCiudad}" Style="{StaticResource EntryTemplate}" Placeholder="Introducir ciudad"></Entry>
+                <Label x:Name="lblError" Style="{StaticResource ErrorStyle}" IsVisible="{Binding CiudadError}" Text="Ingrese una ciudad."/>
+
+                <Label Text="Provincia" TextColor="#080616"></Label>
+                <Entry x:Name="txtProvincia" Text="{Binding DireccionProvincia}" Style="{StaticResource EntryTemplate}" Placeholder="Introducir provincia"></Entry>
+                <Label Style="{StaticResource ErrorStyle}" IsVisible="{Binding ProvinciaError}" Text="Ingrese una provincia."/>
+
+                <Label Text="Codigo Postal" TextColor="#080616"></Label>
+                <Entry x:Name="txtCodigoPostal" Text="{Binding DireccionCodigoPostal}" Style="{StaticResource EntryTemplate}" Placeholder="Introducir código postal"></Entry>
+                <Label Style="{StaticResource ErrorStyle}" IsVisible="{Binding CodigoPostalError}" Text="Ingrese su codigo postal."/>
+
+                <Label Text="Pais" TextColor="#080616"></Label>
+                <Picker x:Name="pickerPais" SelectedItem="{Binding PaisSeleccionado}" ItemsSource="{Binding Paises}" ItemDisplayBinding="{Binding Descripcion}" Title="Selecciona un país" TitleColor="#999999" TextColor="#080616"></Picker>
+                <Label Style="{StaticResource ErrorStyle}" IsVisible="{Binding PaisError}" Text="Seleccione un pais."/>
+
+            </StackLayout>
+
+        </StackLayout>
+
+        <ContentView Style="{StaticResource NextButtonLayout}">
+            <Button Style="{StaticResource NextButton}" Command="{Binding FinCommand}"/>
+        </ContentView>
+
+    </StackLayout>
+</ContentPage>

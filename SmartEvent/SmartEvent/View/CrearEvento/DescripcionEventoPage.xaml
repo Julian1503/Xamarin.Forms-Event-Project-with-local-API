@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SmartEvent.View.DescripcionEventoPage">
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource MainLayout}">
+
+
+            <ContentView Margin="20,30,0,0">
+                <Label Text="Describe tu evento." FontAttributes="Bold" FontSize="22" TextColor="#080616" />
+            </ContentView>
+
+
+            <ContentView Margin="20,15,0,0">
+                <Editor x:Name="txtDescripcion" 
+                        Text="{Binding Descripcion}"
+                    VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"
+                       Placeholder="Introduce un breve resumen de tu evento para que los invitados sepan qué pueden esperar"
+                       PlaceholderColor="#999999"
+                       Margin="0,0,0,10"
+                       MaxLength="140" Visual="Material" TextColor="#080616" FontSize="18"/>
+            </ContentView>
+
+
+            <ContentView Style="{StaticResource NextButtonLayout}">
+                <Button Command="{Binding DescripcionCommand}" Style="{StaticResource NextButton}" />
+            </ContentView>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

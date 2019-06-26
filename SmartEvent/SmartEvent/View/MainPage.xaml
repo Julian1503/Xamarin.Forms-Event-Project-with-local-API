@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:SmartEvent.Converter"
+             x:Class="SmartEvent.MainPage" 
+             NavigationPage.HasNavigationBar="False" x:Name="MainPaje" Title="Detalle">
+     <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:CatitalizeConverter x:Key="CapitalizeConverter"></local:CatitalizeConverter>
+    </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <ListView ItemsSource="{Binding Data}"
+                  RowHeight="280" SeparatorVisibility="None" SelectionMode="None" BackgroundColor="White" RefreshControlColor="White">
+            <ListView.Header>
+                <StackLayout Margin="0,8,0,8">
+                     <!--<Grid Margin="8,8,8,36" HeightRequest="40">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="110"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="80"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Grid.Column="0" Command="{Binding CreateEventCommand}" Style="{StaticResource HeaderButton}" Text="Crear Evento" >
+                        </Button>
+                        <Button Grid.Column="4"  IsVisible="{Binding LogOut}" Command="{Binding LogOutCommand}" Style="{StaticResource HeaderButton}" BackgroundColor="DarkOrange" Text="Log Out" />
+                        <Button Grid.Column="4" Command="{Binding LogInCommand}" IsVisible="{Binding LogIn}" Style="{StaticResource HeaderButton}" Text="Log In" />
+                    </Grid>-->
+                    <Label Text="Meetup"
+                   TextColor="RoyalBlue"
+                   FontSize="50"
+                   HorizontalTextAlignment="Center"
+                   FontAttributes="Bold"
+                   Margin="0,32,0,10"/>
+                    <SearchBar Text="{Binding SearchBarText,Mode=OneWayToSource}" Placeholder="Busca un evento"  x:Name="SearchBar" SearchCommand="{Binding SearchCommand}" SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}"  Margin="0"/>
+                </StackLayout>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell Appearing="ViewCell_Appearing" x:Name="Cell">
+                        <Frame Margin="50,20,50,10" 
+                               CornerRadius="5"  
+                               BackgroundColor="White" Padding="0" x:Name="Frame">
+                            <StackLayout Padding="0">
+                                <Image Source="{Binding Path}" HorizontalOptions="FillAndExpand" Aspect="AspectFill" VerticalOptions="Start" HeightRequest="120"/>
+                                <Label Text="{Binding Nombre, Converter={StaticResource CapitalizeConverter}}" HorizontalOptions="Center" TextColor="#545252" FontSize="20" FontFamily="Graphik" FontAttributes="Bold"></Label>
+                                <Label Text="{Binding Organizador}" HorizontalOptions="Center" TextColor="#9A9898" FontSize="13" FontFamily="Graphik"></Label>
+                                <Button Text="Ver" x:Name="Boton" Command="{Binding BindingContext.InscriptionCommand, Source={x:Reference MainPaje}}" CommandParameter="{Binding Id}" Style="{StaticResource OrangeButtonStyle}" HeightRequest="40" Padding="0,0,0,3" Margin="64,16,64,8"></Button>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ContentView Opacity=".8" IsVisible="{Binding IsBusy}" BackgroundColor="Black">
+            <ActivityIndicator Color="Azure" HorizontalOptions="Center" IsRunning="True"></ActivityIndicator>
+        </ContentView>
+    </Grid>
+    
+</ContentPage>

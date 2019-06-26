@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SmartEvent.View.MasterMainPage"
+             xmlns:pages="clr-namespace:SmartEvent.View"
+             xmlns:smartEvent="clr-namespace:SmartEvent;assembly=SmartEvent" NavigationPage.HasNavigationBar="False">
+  <MasterDetailPage.Master>
+        <pages:MasterMainMaster x:Name="Master"></pages:MasterMainMaster>
+    </MasterDetailPage.Master>
+  <MasterDetailPage.Detail>
+        <smartEvent:MainPage></smartEvent:MainPage>
+  </MasterDetailPage.Detail>
+</MasterDetailPage>

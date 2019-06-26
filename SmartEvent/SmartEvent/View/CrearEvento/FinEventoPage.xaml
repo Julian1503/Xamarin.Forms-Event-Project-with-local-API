@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SmartEvent.View.FinEventoPage">
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource MainLayout}">
+
+
+            <ScrollView>
+                <StackLayout Margin="20,30,0,0">
+                    <Label Text="Últimos detalles" FontAttributes="Bold" FontSize="22" TextColor="#080616" />
+
+                    <Label Margin="0,20,0,0" Text="Nombre del organizador" TextColor="#080616"/>
+                    <Entry  x:Name="txtOrganizador" Placeholder="Ingresar nombre del organizador" Text="{Binding Organizador}" PlaceholderColor="#999999" TextColor="#080616"/>
+                    <Label Margin="5,0,0,0" Style="{StaticResource ErrorStyle}" IsVisible="{Binding OrganizadorError}" Text="Falta que elija un nombre para las entradas."/>
+
+                    <StackLayout Margin="0,30,0,0">
+                        <Label Text="Imagen del evento" TextColor="#080616"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Entry x:Name="txtImagen" Placeholder="Imagen" Text="{Binding Path}" IsReadOnly="True" WidthRequest="250"></Entry>
+                            <Button Text="Elegir" Clicked="Button_OnClicked"></Button>
+                        </StackLayout>
+                        <Label Text="Tipo de evento" TextColor="#080616"/>
+                        <Picker x:Name="pickerTipoEvento" ItemsSource="{Binding TipoEvento}" ItemDisplayBinding="{Binding Descripcion}" SelectedItem="{Binding TipoEventoSeleccionado}" Title="Seleccionar tipo" TitleColor="#999999" TextColor="#080616"/>
+                        <Label Margin="5,0,0,0" Text="Falta que elija algun tipo para el evento." IsVisible="{Binding PickerTipoError}" Style="{StaticResource ErrorStyle }" />
+
+                        <Label Text="Categoria de evento" TextColor="#080616"></Label>
+                        <Picker  x:Name="pickerTemaEvento" ItemsSource="{Binding TemaEvento}" ItemDisplayBinding="{Binding Descripcion}" SelectedItem="{Binding TemaEventoSeleccionado}" Title="Selecciona categoría" TitleColor="#999999" TextColor="#080616"/>
+                        <Label Margin="5,0,0,0" Style="{StaticResource ErrorStyle}" IsVisible="{Binding PickerTemaError}" Text="Falta que elija algun tema para el evento."/>
+
+                        <Label Margin="0,20,0,0" Text="Nombre de la entrada" TextColor="#080616"/>
+                        <Entry  x:Name="txtNombre" Placeholder="Ingresar nombre de la entrada" Text="{Binding NombreEntrada}" PlaceholderColor="#999999" TextColor="#080616"/>
+                        <Label Margin="5,0,0,0" Style="{StaticResource ErrorStyle}" IsVisible="{Binding TextNombreEntradaError}" Text="Falta que elija un nombre para las entradas."/>
+
+                        <Label  Text="Tipo" TextColor="#080616"/>
+                        <Picker  x:Name="pickerTipoEntrada" SelectedIndexChanged="PickerTipoEntrada_SelectedIndexChanged" SelectedIndex="{Binding TipoEntradaSeleccionado}" Title="Seleccionar tipo" TitleColor="#999999" TextColor="#080616"/>
+                        <Label Style="{StaticResource ErrorStyle}" Margin="5,0,0,0" IsVisible="{Binding PickerTipoEntradaError}" Text="Falta que elija el tipo de entrada." />
+
+                        <Label Text="Cantidad" TextColor="#080616"/>
+                        <Entry x:Name="txtCantidad" Keyboard="Numeric" Style="{StaticResource EntryTemplate}" Text="{Binding NumeroEntradas}" Placeholder="Introducir N° de entradas"/>
+
+                        <Label Text="Precio" TextColor="#080616"/>
+                        <Entry x:Name="txtPrecio" Keyboard="Numeric" Style="{StaticResource EntryTemplate}" Text="{Binding PrecioEntradas}" Placeholder="Introducir precio"/>
+
+                        <StackLayout Orientation="Horizontal" Spacing="0">
+                            <Label Text="Mostrar las entradas restantes" TextColor="#080616" VerticalOptions="Center"/>
+                            <BoxView WidthRequest="20" HeightRequest="20" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+                            <Switch x:Name="switchEntradas" IsToggled="{Binding MostrarEntradasRestantes}"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Spacing="0" Margin="0,0,0,30">
+                            <Label Text="Evento público" TextColor="#080616" VerticalOptions="Center"/>
+                            <BoxView WidthRequest="20" HeightRequest="20" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+                            <Switch x:Name="switchEventoPublico" IsToggled="{Binding EsPaginaPublica}" />
+                        </StackLayout>
+
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+
+            <ContentView Style="{StaticResource NextButtonLayout}">
+                <Button Style="{StaticResource NextButton}" Command="{Binding FinalCommand}"  BackgroundColor="RoyalBlue" TextColor="White"/>
+            </ContentView>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

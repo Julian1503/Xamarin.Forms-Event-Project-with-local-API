@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sys ="clr-namespace:System;assembly=netstandard" 
+             mc:Ignorable="d"
+             x:Class="SmartEvent.View.FechaEventoPage">
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource MainLayout}">
+
+            <StackLayout Margin="20,30,0,0">
+                <Label Text="Establece la fecha de tu evento." FontAttributes="Bold" FontSize="22" TextColor="#080616" />
+
+                <StackLayout Margin="0,30,0,0">
+
+                    <Label Text="A partir del:" FontAttributes="Bold" FontSize="18" TextColor="#080616" />
+
+                    <DatePicker x:Name="dpFechaDesde" Date="{Binding FechaDesde}" MaximumDate="2019-12-31" MinimumDate="{x:Static sys:DateTime.Now}"></DatePicker>
+
+                    <Label Text="Para:" FontAttributes="Bold" FontSize="18" TextColor="#080616" />
+
+                    <DatePicker x:Name="dpFechaHasta" Date="{Binding FechaHasta}" MaximumDate="2019-12-31" MinimumDate="{Binding Date, Source={x:Reference dpFechaDesde}}"></DatePicker>
+
+                </StackLayout>
+              <StackLayout>
+                <Label Text="Hora de entrada:"  FontAttributes="Bold" FontSize="18" TextColor="#080616" />
+                    <TimePicker x:Name="tpHoraDesde" PropertyChanged="tpHoraHasta_PropertyChanged" Time="{Binding HoraDesde}"></TimePicker>
+                <Label Text="Hora de finalizacion:" FontAttributes="Bold" FontSize="18" TextColor="#080616" />
+                    <TimePicker PropertyChanged="tpHoraHasta_PropertyChanged" x:Name="tpHoraHasta" Time="{Binding HoraHasta}"></TimePicker>
+              </StackLayout>
+                <Label x:Name="lblError" Style="{StaticResource ErrorStyle}" Text="La hora de finalizacion debe ser mayor a la hora de entrada."/>
+            </StackLayout>
+
+            <ContentView Style="{StaticResource NextButtonLayout}">
+                <Button Style="{StaticResource NextButton}" Command="{Binding FechaCommand}"/>
+            </ContentView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

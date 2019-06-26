@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SmartEvent.View.CrearUsuario.PersonaPage">
+    <StackLayout Style="{StaticResource MainLayout}">
+        <ScrollView>
+            <StackLayout Margin="20,30,0,0">
+
+            <Label Text="Datos personales" FontAttributes="Bold" FontSize="22" TextColor="#080616" />
+
+            <StackLayout Margin="0,30,0,0">
+
+                <Label Text="Nombre" TextColor="#080616"></Label>
+                <Entry x:Name="txtNombre" Text="{Binding PersonaNombre}" Style="{StaticResource EntryTemplate}" Placeholder="Introduce tu nombre"></Entry>
+                    <Label Style="{StaticResource ErrorStyle}" IsVisible="{Binding PersonaNombreError}" Text="Ingrese su nombre."/>
+
+                <Label Text="Apellido" TextColor="#080616"></Label>
+                <Entry x:Name="txtApellido" Text="{Binding PersonaApellido}" Style="{StaticResource EntryTemplate}" Placeholder="Introducir apellido"></Entry>
+                <Label x:Name="lblError" Style="{StaticResource ErrorStyle}" IsVisible="{Binding PersonaApellidoError}" Text="Ingrese su apellido."/>
+
+                <Label Text="Apellido de casado" TextColor="#080616"></Label>
+                <Entry x:Name="txtApellidoCasada"  Text="{Binding PersonaApellidoCasada}" Style="{StaticResource EntryTemplate}" Placeholder="Introducir apellido de casado"></Entry>
+
+                <Label Text="Email" TextColor="#080616"></Label>
+                <Entry x:Name="txtEmail" Text="{Binding PersonaEmail}" Keyboard="Email" Style="{StaticResource EntryTemplate}" Placeholder="example@ex.com"></Entry>
+                <Label Style="{StaticResource ErrorStyle}" IsVisible="{Binding PersonaEmailError}" Text="Ingrese su email."/>
+
+                <Label Text="DNI" TextColor="#080616"></Label>
+                <Entry x:Name="txtDni" Text="{Binding PersonaDni}" Keyboard="Numeric" Style="{StaticResource EntryTemplate}" Placeholder="Introducir DNI"></Entry>
+                <Label Style="{StaticResource ErrorStyle}" IsVisible="{Binding PersonaDniError}" Text="Ingrese su DNI."/>
+
+                <Label Text="Telefono" TextColor="#080616"></Label>
+                <Entry x:Name="txtTelefono"  Text="{Binding PersonaTelefono}" Keyboard="Numeric" Style="{StaticResource EntryTemplate}" Placeholder="Introducir telefono"></Entry>
+                <Label Style="{StaticResource ErrorStyle}" IsVisible="{Binding PersonaTelefonoError}" Text="Ingrese su numero de telefono."/>
+
+                <Label Text="Celular" TextColor="#080616"></Label>
+                <Entry x:Name="txtCelular"  Text="{Binding PersonaCelular}" Keyboard="Numeric" Style="{StaticResource EntryTemplate}" Placeholder="Introducir celular"></Entry>
+                <Label Style="{StaticResource ErrorStyle}" IsVisible="{Binding PersonaCelularError}" Text="Ingrese su numero de celular."/>
+
+
+                <StackLayout Orientation="Horizontal" Spacing="0" Margin="0,0,0,30">
+                    <Label Text="Alta por mostrador" TextColor="#080616" VerticalOptions="Center"/>
+                    <BoxView WidthRequest="20" HeightRequest="20" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+                    <Switch x:Name="switchEventoPublico" IsToggled="{Binding PersonaAltaPorMostrador}" />
+                </StackLayout>
+            </StackLayout>
+
+        </StackLayout>
+        </ScrollView>
+        <ContentView Style="{StaticResource NextButtonLayout}">
+            <Button Style="{StaticResource NextButton}" Command="{Binding PersonaCommand}"/>
+        </ContentView>
+
+    </StackLayout>
+</ContentPage>

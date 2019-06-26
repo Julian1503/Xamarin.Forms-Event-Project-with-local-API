@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SmartEvent.View.NombreEventoPage">
+    <StackLayout Style="{StaticResource MainLayout}">
+
+
+                <ContentView Margin="20,30,0,0">
+                    <Label  Text="Asigna un nombre a tu evento." FontAttributes="Bold" FontSize="22" TextColor="#080616" />
+                </ContentView>
+
+
+                <StackLayout Margin="20,15,0,0">
+                    <Entry x:Name="txtNombre"
+                           Text="{Binding Nombre}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="FillAndExpand"
+                           Placeholder="Dale un nombre corto e inconfundible"
+                           PlaceholderColor="#999999"
+                           Margin="0,0,0,5"
+                           FontAttributes="Bold" MaxLength="75" Visual="Material" TextColor="#080616"/>
+                    <Label x:Name="lblError" Style="{StaticResource ErrorStyle}" IsVisible="{Binding NombreEventoError}" Text="Debe ingresar un nombre al evento."/>
+                </StackLayout>
+
+
+                <ContentView Style="{StaticResource NextButtonLayout}">
+                <Button Style="{StaticResource NextButton}" Command="{Binding NombreCommand}" CommandParameter="{Binding Text, Source={x:Reference txtNombre}}" />
+                </ContentView>
+
+
+            </StackLayout>
+
+</ContentPage>
